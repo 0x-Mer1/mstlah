@@ -94,6 +94,11 @@ html {
   scroll-behavior: smooth;
   scrollbar-width: none;
   scrollbar-color: var(--color-primary) var(--color-bg);
+  /* clip, not hidden: hidden forces overflow-y to auto and turns the root into a
+     scroll container, which the fixed controls/popup must not inherit */
+  overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -102,7 +107,9 @@ body {
   color: var(--color-text);
   line-height: 1.6;
   min-height: 100vh;
-  width: 100vw;
+  min-height: 100dvh;
+  /* 100vw includes the scrollbar gutter and overflows the root by that much */
+  width: 100%;
   direction: rtl;
 
   display: flex;

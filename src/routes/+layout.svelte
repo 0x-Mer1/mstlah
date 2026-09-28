@@ -13,8 +13,9 @@
 	.main {
 		display: flex;
 		flex-direction: column;
-		width: clamp(600px, 90%, 80vw);
+		width: min(clamp(600px, 90%, 80vw), 100%);
 		margin: 0 auto;
 		height: 100vh;
+		height: 100dvh;
 	}
 </style>

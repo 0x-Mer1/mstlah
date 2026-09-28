@@ -344,7 +344,7 @@
 
 <style>
 	.article-page {
-		width: clamp(600px, 60%, 80vw);
+		width: min(clamp(600px, 60%, 80vw), 100%);
 		margin: 0 auto;
 		padding: 2rem 1rem;
 	}
@@ -358,6 +358,20 @@
 		background: var(--color-bg);
 		border-radius: 50%;
 		margin-bottom: 1rem;
+	}
+
+	@media (hover: none) and (pointer: coarse) {
+		.back {
+			min-width: 44px;
+			min-height: 44px;
+		}
+
+		/* inline term links sit in running text: the extra hit area has to come
+		   from padding, which does not grow the line box. 0.8em is the most that
+		   fits without a link's box reaching into the line above or below */
+		.content :global(a.term) {
+			padding-block: 0.8em;
+		}
 	}
 
 	.content {
@@ -397,6 +411,7 @@
 		padding: 1rem;
 		border-radius: 8px;
 		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
 	}
 
 	.content :global(pre code) {
@@ -420,5 +435,35 @@
 		background: var(--color-bg-alt);
 		outline: 1px solid var(--color-accent);
 		outline-offset: 2px;
+	}
+
+	/* the column is viewport-wide below the breakpoint, so article content has
+	   to be fenced in here rather than rely on the desktop min-width */
+	@media (max-width: 600px) {
+		.content :global(*) {
+			overflow-wrap: break-word;
+		}
+
+		/* pre keeps its own horizontal scroll, so its lines must not wrap */
+		.content :global(pre),
+		.content :global(pre *) {
+			overflow-wrap: normal;
+		}
+
+		.content :global(table) {
+			display: block;
+			max-inline-size: 100%;
+			overflow-x: auto;
+		}
+
+		.content :global(img),
+		.content :global(video) {
+			max-inline-size: 100%;
+			height: auto;
+		}
+
+		.content :global(iframe) {
+			max-inline-size: 100%;
+		}
 	}
 </style>

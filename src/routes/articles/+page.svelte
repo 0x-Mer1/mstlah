@@ -70,7 +70,7 @@
 	}
 
 	.articles-page {
-		width: clamp(600px, 60%, 80vw);
+		width: min(clamp(600px, 60%, 80vw), 100%);
 		margin: 0 auto;
 		padding: 2rem 1rem;
 	}

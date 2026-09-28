@@ -133,6 +133,14 @@
 		box-shadow: none;
 	}
 
+	@media (max-width: 600px) {
+		/* iOS Safari zooms the viewport when a focused field computes under 16px;
+		   1.25rem lands on 16px only while the root stays 0.8rem, so pin it */
+		.search-input {
+			font-size: 16px;
+		}
+	}
+
 	.search-input::placeholder {
 		color: var(--color-text-muted);
 	}
@@ -149,7 +157,7 @@
 	.search-wrapper {
 		display: flex;
 		flex-direction: column;
-		width: clamp(600px, 60%, 80vw);
+		width: min(clamp(600px, 60%, 80vw), 100%);
 		margin: 0 auto;
 
 		@media (max-width: 600px) {

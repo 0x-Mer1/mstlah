@@ -131,7 +131,7 @@
 		display: flex;
 		flex-direction: column;
 
-		width: clamp(600px, 60%, 80vw);
+		width: min(clamp(600px, 60%, 80vw), 100%);
 		margin: 0 auto;
 		flex: 1;
 	}

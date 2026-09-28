@@ -97,4 +97,12 @@
 		background: var(--color-accent);
 		color: var(--color-bg);
 	}
+
+	@media (hover: none) and (pointer: coarse) {
+		.theme-toggle {
+			min-width: 44px;
+			min-height: 44px;
+			padding-inline: 0.75rem;
+		}
+	}
 </style>

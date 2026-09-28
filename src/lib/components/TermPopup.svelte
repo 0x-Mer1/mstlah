@@ -178,6 +178,7 @@
 		width: max-content;
 		max-width: min(320px, calc(100vw - 1rem));
 		max-height: calc(100vh - 16px);
+		max-height: calc(100dvh - 16px);
 		overflow-y: auto;
 		overscroll-behavior: contain;
 		display: flex;
