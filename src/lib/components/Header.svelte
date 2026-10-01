@@ -12,7 +12,12 @@
 	style:--header-margin-block={margin}
 	style:text-align={align}
 >
-	<a href={resolve("/")} class="logo" style:font-size={fontSize}>مصطلع</a>
+	<div class="logo-wrap" style:font-size={fontSize}>
+		<a href={resolve("/")} class="logo">
+			مصطلع
+		</a>
+		<span class="proto-chip">نموذج</span>
+	</div>
 </header>
 
 <style>
@@ -31,9 +36,35 @@
 		}
 	}
 
+	/* inline-flex keeps the header's text-align in charge of placement */
+	.logo-wrap {
+		display: inline-flex;
+		flex-direction: row;
+		align-items: baseline;
+	}
+
+	.proto-chip {
+		margin-inline-start: 0;
+		padding-block: 0.1em;
+		padding-inline: 0.55em;
+		font-family: var(--font-display);
+		font-size: clamp(0.62rem, 0.1em, 0.68rem);
+		line-height: 1;
+		font-weight: 500;
+		letter-spacing: 0.04em;
+		color: var(--color-text-secondary);
+		background: none;
+		border-radius: var(--radius-sm);
+		opacity: 0.55;
+		user-select: none;
+		pointer-events: none;
+		text-decoration: underline;
+		margin-top: auto;
+	}
+
 	.logo {
 		font-family: var(--font-display);
-		font-size: 7rem;
+		font-size: 1em;
 		font-weight: 700;
 		color: var(--color-fg);
 		letter-spacing: -0.02em;
